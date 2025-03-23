@@ -164,6 +164,10 @@ if __name__ == '__main__':
         conn_thread.start()
 
 
+    def show_info():
+        messagebox.showinfo('Info', 'By:Tharinda Lakshan\r@MotionGate-DPR(2025 Mar)')
+
+
     root = tk.Tk()
     root.resizable(False, False)
     root.grid_columnconfigure(0, weight=1)
@@ -176,6 +180,7 @@ if __name__ == '__main__':
 
     custom_command_string = tk.StringVar(root)
     load_show_string = tk.StringVar(root)
+    info_icon = PhotoImage(file='info.png')
     save_icon = PhotoImage(file='save.png')
     delete_icon = tk.PhotoImage(file='delete.png')
     run_icon = tk.PhotoImage(file='run.png')
@@ -197,6 +202,7 @@ if __name__ == '__main__':
     frame4.grid_columnconfigure(0, weight=2)
     frame4.grid_columnconfigure(1, weight=1)
 
+    button_info = ttk.Button(root, command=show_info, image=info_icon)
     comboBox_devices = ttk.Combobox(frame1, values=list(deviceList.keys()), state='normal')
     comboBox_IPs = ttk.Combobox(frame1, values=list(deviceList.values()), state='normal')
     button_save_device = ttk.Button(frame1, command=write_device_list, image=save_icon)
@@ -217,12 +223,13 @@ if __name__ == '__main__':
     button_load_show = ttk.Button(frame4, text='Load Show', command=lambda: connection_thread(6), style='my.TButton')
     label_last_reply = tk.Label(frame5, wraplength=280, justify='left', height=7)
 
-    main_frame.grid(column=0, row=0, padx=5, pady=5)
-    frame1.grid(column=0, row=0, sticky='ew', padx=5, pady=(0, 5))
-    frame2.grid(column=0, row=1, sticky='ew', padx=5, pady=5)
-    frame3.grid(column=0, row=2, sticky='ew', padx=5, pady=5)
-    frame4.grid(column=0, row=3, sticky='ew', padx=5, pady=5)
-    frame5.grid(column=0, row=4, sticky='ew', padx=5, pady=5)
+    button_info.grid(column=0, row=0, sticky='e', padx=5, pady=(5, 0))
+    main_frame.grid(column=0, row=1, padx=5, pady=(0, 5))
+    frame1.grid(column=0, row=1, sticky='ew', padx=5, pady=(0, 5))
+    frame2.grid(column=0, row=2, sticky='ew', padx=5, pady=5)
+    frame3.grid(column=0, row=3, sticky='ew', padx=5, pady=5)
+    frame4.grid(column=0, row=4, sticky='ew', padx=5, pady=5)
+    frame5.grid(column=0, row=5, sticky='ew', padx=5, pady=5)
     comboBox_devices.grid(column=0, row=0, sticky='ew', padx=2, pady=2)
     comboBox_IPs.grid(column=1, row=0, sticky='ew', padx=2, pady=2)
     button_save_device.grid(column=0, row=1, sticky='ew', ipady=2, padx=2, pady=2)
