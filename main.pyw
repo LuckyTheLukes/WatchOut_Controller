@@ -223,7 +223,7 @@ if __name__ == '__main__':
     button_load_show = ttk.Button(frame4, text='Load Show', command=lambda: connection_thread(6), style='my.TButton')
     label_last_reply = tk.Label(frame5, wraplength=280, justify='left', height=7)
 
-    button_info.grid(column=0, row=0, sticky='e', padx=5, pady=(5, 0))
+    button_info.grid(column=0, row=0, sticky='ew', padx=5, pady=(5, 0))
     main_frame.grid(column=0, row=1, padx=5, pady=(0, 5))
     frame1.grid(column=0, row=1, sticky='ew', padx=5, pady=(0, 5))
     frame2.grid(column=0, row=2, sticky='ew', padx=5, pady=5)
